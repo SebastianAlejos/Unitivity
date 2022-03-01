@@ -18,6 +18,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
+import TabFiveScreen from '../screens/TabFiveScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -68,7 +69,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+          title: 'Login',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
@@ -90,7 +91,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
+          title: 'Create Password',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -98,7 +99,7 @@ function BottomTabNavigator() {
         name="TabThree"
         component={TabThreeScreen}
         options={{
-          title: 'Tab Three',
+          title: 'Forgot Password',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -106,7 +107,15 @@ function BottomTabNavigator() {
         name="TabFour"
         component={TabFourScreen}
         options={{
-          title: 'Tab Three',
+          title: 'Create Your Account',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabFive"
+        component={TabFiveScreen}
+        options={{
+          title: 'Temporary Code',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
