@@ -1,7 +1,5 @@
-import EditScreenInfo from '../components/EditScreenInfo';
 import { RootTabScreenProps } from '../types';
 import { Alert, Button, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import {Card, Icon } from 'react-native-elements';
 import React from 'react';
 
 const image = { uri: "../assets/images/splash_1.png" };
