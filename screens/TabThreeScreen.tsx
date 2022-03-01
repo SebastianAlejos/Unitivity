@@ -12,19 +12,13 @@ export default function TabThreeScreen({ navigation }: RootTabScreenProps<'TabTh
     <ImageBackground source={require("../assets/images/splash_1.png")} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={[styles.box, styles.shadowProp]}>
-          <Text style={styles.title}>Create Password</Text>
+          <Text style={styles.title}>Forgot Password</Text>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
-          placeholder="PASSWORD"
+          placeholder="EMAIL"
           />
-          <TextInput
-          secureTextEntry={true}
-          placeholderTextColor="#000" 
-          style={styles.input}
-          placeholder="RETYPE PASSWORD"
-          />
-          <Pressable style={styles.button} onPress={()=>{ alert('You have created your password successfully'); }}>
+          <Pressable style={styles.button} onPress={()=>{ alert('Please check your email for instructions to reset your password.'); }}>
             <Text style={styles.label}>Submit</Text>
           </Pressable>
         </View>

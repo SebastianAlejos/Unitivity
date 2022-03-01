@@ -12,13 +12,26 @@ export default function TabFourScreen({ navigation }: RootTabScreenProps<'TabFou
     <ImageBackground source={require("../assets/images/splash_1.png")} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={[styles.box, styles.shadowProp]}>
-          <Text style={styles.title}>Forgot Password</Text>
+          <Text style={styles.title}>Unitivity - Create Your Account</Text>
           <TextInput
+          placeholderTextColor="#000" 
+          style={styles.input}
+          placeholder="NAME"
+          />
+          <TextInput
+          secureTextEntry={true}
           placeholderTextColor="#000" 
           style={styles.input}
           placeholder="EMAIL"
           />
-          <Pressable style={styles.button} onPress={()=>{ alert('Please check your email for instructions to reset your password.'); }}>
+          <TextInput
+          secureTextEntry={true}
+          placeholderTextColor="#000" 
+          style={styles.input}
+          placeholder="RETYPE EMAIL"
+          />
+          <Text>All accounts must be created using a .edu email address.</Text>
+          <Pressable style={styles.button} onPress={()=>{ alert('You have created your account successfully'); }}>
             <Text style={styles.label}>Submit</Text>
           </Pressable>
         </View>
