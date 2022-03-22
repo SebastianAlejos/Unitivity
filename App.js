@@ -7,6 +7,8 @@ import CreatePassword from './screens/CreatePassword';
 import ForgotPassword from './screens/ForgotPassword';
 import SignUp from './screens/SignUp';
 import CodeScreen from './screens/CodeScreen';
+import Menu from './screens/Menu';
+
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -34,6 +36,7 @@ export default function App() {
         {props => (
                 <CreatePassword {...props}/>
               )}
+        <Stack.Screen name='Menu' component={Menu}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>

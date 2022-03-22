@@ -29,7 +29,7 @@ export default function Login(props: CompProps) {
             <Pressable  onPress={()=>{props.navigation.navigate('ForgotPassword')}}>
               <Text style={styles.text }>Forgot Your Password?</Text>
             </Pressable>
-            <Pressable style={styles.button} onPress={()=>{ alert('You have logged in successfully'); }}>
+            <Pressable style={styles.button} onPress={()=>{props.navigation.navigate('Menu')}}>
               <Text style={styles.label}>Login</Text>
             </Pressable>
             <Pressable style={styles.subutton} onPress={()=>{ props.navigation.navigate('SignUp')}}>
