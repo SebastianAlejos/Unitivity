@@ -1,5 +1,6 @@
 import {Text, Pressable, StyleSheet, View } from "react-native";
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type CompProps = {
   /* The props passed by navigation are much more complex,
@@ -11,19 +12,25 @@ type CompProps = {
 export default function Menu(props: CompProps) {
   return (
     <View style={styles.container}>
-        <Pressable  onPress={()=>{alert('Explore will be here')}}>
+        <Icon name='close' style={styles.icon} size={44} onPress={() =>{props.navigation.goBack()}}></Icon>
+        <Pressable style={styles.pressable}  onPress={()=>{alert('Explore will be here')}}>
+            <Icon name="magnify" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Explore</Text>
         </Pressable>
-        <Pressable  onPress={()=>{alert('Events will be here')}}>
-            <Text style={styles.text }>Events</Text>
+        <Pressable style={styles.pressable} onPress={()=>{alert('Events will be here')}}>
+            <Icon name="calendar-month" style={styles.icons} size={44}></Icon>
+            <Text style={styles.text}>Events</Text>
         </Pressable> 
-        <Pressable  onPress={()=>{alert('Profile will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{alert('Profile will be here')}}>
+            <Icon name="account-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Profile</Text>
         </Pressable> 
-        <Pressable  onPress={()=>{alert('Preferences will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{alert('Preferences will be here')}}>
+            <Icon name="cog" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Preferences</Text>
         </Pressable> 
-        <Pressable  onPress={()=>{alert('Favorites will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{alert('Favorites will be here')}}>
+            <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Favorites</Text>
         </Pressable> 
     </View>
@@ -41,6 +48,23 @@ const styles = StyleSheet.create({
     color: '#FFFF',
     fontSize: 30,
     fontWeight:'bold',
-    margin:15, 
+    margin:15,
+    marginTop:5
+  },
+  icon:{
+    color:"#FFFF", 
+    alignSelf: 'flex-start',
+    position: 'absolute',
+    top:85,
+    left: 30,
+  },
+  icons:{
+      color: '#FFFF',
+      margin:0, 
+  },
+  pressable:{
+    flexDirection:'row', 
+    flexWrap:'wrap',
+    margin:10
   },
 });
