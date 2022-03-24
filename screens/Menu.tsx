@@ -13,7 +13,7 @@ export default function Menu(props: CompProps) {
   return (
     <View style={styles.container}>
         <Icon name='close' style={styles.icon} size={44} onPress={() =>{props.navigation.goBack()}}></Icon>
-        <Pressable style={styles.pressable}  onPress={()=>{alert('Explore will be here')}}>
+        <Pressable style={styles.pressable}  onPress={()=> props.navigation.navigate('Explore')}>
             <Icon name="magnify" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Explore</Text>
         </Pressable>

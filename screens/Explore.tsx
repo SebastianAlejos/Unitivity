@@ -1,17 +1,19 @@
-
-import { RootTabScreenProps } from '../types';
-import { Alert, ImageBackground, Pressable, StyleSheet, Text, TextInput, View, ScrollView } from "react-native";
-import { Card, Header, Button, ButtonGroup, SearchBar, ListItem } from 'react-native-elements';
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+import {Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { SearchBarBaseProps } from 'react-native-elements/dist/searchbar/SearchBar';
+import { SearchBarBaseProps } from "@react-native-elements/base/dist/SearchBar/SearchBar";
 import React, { useState } from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { isWidthUp, List } from '@material-ui/core';
-import { renderNode } from 'react-native-elements/dist/helpers';
+import MapView from "react-native-maps";
 
 const SafeSearchBar = (SearchBar as unknown) as React.FC<SearchBarBaseProps>;
+type CompProps = {
+  /* The props passed by navigation are much more complex,
+   *  but we are only using the navigate and goBack functions in this example
+   */
+  navigation: { navigate: Function; goBack:Function};
+};
 
-export default function Explore({ navigation }: RootTabScreenProps<'Explore'>) {
+export default function Explore(props: CompProps) {
   // Toggle events/locations variables
   const [
     selectedIndex,
@@ -68,7 +70,7 @@ export default function Explore({ navigation }: RootTabScreenProps<'Explore'>) {
           style: { color: "#000", fontSize: 36, fontWeight: "700" }
         }}
         centerContainerStyle={{}}
-        leftComponent={<Icon name="menu" color="#000" size={44} onPress={() => alert("open menu")}></Icon>}
+        leftComponent={<Icon name="menu" color="#000" size={44} onPress={() => props.navigation.navigate('Menu')}></Icon>}
         leftContainerStyle={{}}
         placement="left"
         rightComponent={
@@ -92,6 +94,14 @@ export default function Explore({ navigation }: RootTabScreenProps<'Explore'>) {
       />
 
       <View style={[styles.mapContainer]}>
+        <MapView
+          initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+          }}
+        />
 
         <ButtonGroup
           //style={{backgroundColor: "red"}}
@@ -131,9 +141,10 @@ export default function Explore({ navigation }: RootTabScreenProps<'Explore'>) {
             platform="ios"
             placeholder="Search..."
             onChangeText={updateSearch}
-            containerStyle={{backgroundColor: '#F9F9F9'}}
-            value={search}
-          />
+            containerStyle={{ backgroundColor: '#F9F9F9' }}
+            value={search} theme={{
+              colors: undefined
+            }}          />
         </View>
 
         <ScrollView>
