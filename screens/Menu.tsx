@@ -17,7 +17,7 @@ export default function Menu(props: CompProps) {
             <Icon name="magnify" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Explore</Text>
         </Pressable>
-        <Pressable style={styles.pressable} onPress={()=>{alert('Events will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>props.navigation.navigate('Events')}>
             <Icon name="calendar-month" style={styles.icons} size={44}></Icon>
             <Text style={styles.text}>Events</Text>
         </Pressable> 

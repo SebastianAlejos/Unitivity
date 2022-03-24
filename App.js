@@ -9,6 +9,7 @@ import SignUp from './screens/SignUp';
 import CodeScreen from './screens/CodeScreen';
 import Menu from './screens/Menu';
 import Explore from './screens/Explore';
+import Events from './screens/Events';
 
 
 const Stack = createNativeStackNavigator();
@@ -44,6 +45,10 @@ export default function App() {
         <Stack.Screen name='Explore' component={Explore}/>
         {props => (
                 <Explore {...props}/>
+              )}
+        <Stack.Screen name='Events' component={Events}/>
+        {props => (
+                <Events {...props}/>
               )}
       </Stack.Navigator>
     </NavigationContainer>

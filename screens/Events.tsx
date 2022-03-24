@@ -1,10 +1,14 @@
-import { Alert, Button, ImageBackground, Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {ImageBackground,Pressable, StyleSheet, Text, View } from "react-native";
 import React from 'react';
 
-const image = { uri: "../assets/images/splash_1.png" };
+type CompProps = {
+  /* The props passed by navigation are much more complex,
+   *  but we are only using the navigate and goBack functions in this example
+   */
+  navigation: { navigate: Function; goBack: Function};
+};
 
-
-export default function TabNineScreen() {
+export default function Events(props: CompProps) {
   return (
     <ImageBackground source={require("../assets/images/splash_1.png")} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
