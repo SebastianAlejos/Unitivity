@@ -104,7 +104,6 @@ export default function Explore(props: CompProps) {
         />
 
         <ButtonGroup
-          //style={{backgroundColor: "red"}}
           selectedButtonStyle={{ backgroundColor: '#018786' }}
           buttons={["Events", "Locations"]}
           containerStyle={{borderColor: '#018786', borderWidth: 2, height: 30, marginTop: 0, marginLeft: 0, marginRight: 0}}
@@ -125,7 +124,7 @@ export default function Explore(props: CompProps) {
           containerStyle={{
             width: 150,
             marginHorizontal: 220,
-            marginTop: 250,
+            marginTop: 405
           }}
           titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
           onPress={() => alert("open maps app")}
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     backgroundColor: 'lightgray',
-    height: 350,
+    height: 500,
   },
   title: {
     fontSize: 20,
