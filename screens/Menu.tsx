@@ -29,9 +29,9 @@ export default function Menu(props: CompProps) {
             <Icon name="cog" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Preferences</Text>
         </Pressable> 
-        <Pressable style={styles.pressable} onPress={()=>{props.navigation.navigate('Favorites')}}>
+        <Pressable style={styles.pressable} onPress={()=>props.navigation.navigate('Map')}>
             <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
-            <Text style={styles.text }>Favorites</Text>
+            <Text style={styles.text }>Map</Text>
         </Pressable> 
     </View>
   );
