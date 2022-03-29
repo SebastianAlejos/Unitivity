@@ -29,7 +29,7 @@ export default function Menu(props: CompProps) {
             <Icon name="cog" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Preferences</Text>
         </Pressable> 
-        <Pressable style={styles.pressable} onPress={()=>{alert('Favorites will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{props.navigation.navigate('Favorites')}}>
             <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Favorites</Text>
         </Pressable> 

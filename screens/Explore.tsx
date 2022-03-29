@@ -231,7 +231,7 @@ export default function Explore(props: CompProps) {
             marginTop: 405
           }}
           titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
-          onPress={() => alert("open in maps")}
+          onPress={() => props.navigation.navigate('TestPanel')}
         />
       </View>
 
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
   },
   special_sub: {
     fontSize: 15,
-    color: '#018786',
+    color: '#03DAC6',
     fontWeight: "600"
   },
   swipe_tab: {

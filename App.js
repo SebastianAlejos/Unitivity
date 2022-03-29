@@ -11,7 +11,7 @@ import Menu from './screens/Menu';
 import Explore from './screens/Explore';
 import Events from './screens/Events';
 import TestPanel from './screens/TestPanel';
-
+import Favorites from './screens/Favorites';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -54,6 +54,10 @@ export default function App() {
         <Stack.Screen name='TestPanel' component={TestPanel}/>
         {props => (
                 <TestPanel {...props}/>
+              )}
+        <Stack.Screen name='Favorites' component={Favorites}/>
+        {props => (
+                <Favorites {...props}/>
               )}
       </Stack.Navigator>
     </NavigationContainer>
