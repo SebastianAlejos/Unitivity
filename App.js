@@ -12,6 +12,7 @@ import Explore from './screens/Explore';
 import Events from './screens/Events';
 import TestPanel from './screens/TestPanel';
 import Favorites from './screens/Favorites';
+import Profile from './screens/Profile';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -58,6 +59,10 @@ export default function App() {
         <Stack.Screen name='Favorites' component={Favorites}/>
         {props => (
                 <Favorites {...props}/>
+              )}
+        <Stack.Screen name='Profile' component={Profile}/>
+        {props => (
+                <Profile {...props}/>
               )}
       </Stack.Navigator>
     </NavigationContainer>

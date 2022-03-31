@@ -21,7 +21,7 @@ export default function Menu(props: CompProps) {
             <Icon name="calendar-month" style={styles.icons} size={44}></Icon>
             <Text style={styles.text}>Events</Text>
         </Pressable> 
-        <Pressable style={styles.pressable} onPress={()=>{alert('Profile will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{props.navigation.navigate('Profile')}}>
             <Icon name="account-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Profile</Text>
         </Pressable> 
@@ -29,9 +29,9 @@ export default function Menu(props: CompProps) {
             <Icon name="cog" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Preferences</Text>
         </Pressable> 
-        <Pressable style={styles.pressable} onPress={()=>props.navigation.navigate('Map')}>
+        <Pressable style={styles.pressable} onPress={()=>props.navigation.navigate('Favorites')}>
             <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
-            <Text style={styles.text }>Map</Text>
+            <Text style={styles.text }>Favorites</Text>
         </Pressable> 
     </View>
   );
