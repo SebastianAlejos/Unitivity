@@ -11,6 +11,7 @@ type CompProps = {
 
 export default function Menu(props: CompProps) {
   return (
+    <>
     <View style={styles.container}>
         <Icon name='close' style={styles.icon} size={44} onPress={() =>{props.navigation.goBack()}}></Icon>
         <Pressable style={styles.pressable}  onPress={()=> props.navigation.navigate('Explore')}>
@@ -34,15 +35,17 @@ export default function Menu(props: CompProps) {
             <Text style={styles.text }>Favorites</Text>
         </Pressable> 
     </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
+    flex: 2,
+    alignItems: 'flex-start',
     justifyContent: 'center',
-    backgroundColor: '#03DAC6'
+    backgroundColor: '#03DAC6',
+    paddingLeft: 70
   },
   text:{
     color: '#FFFF',
