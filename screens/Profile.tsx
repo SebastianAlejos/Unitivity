@@ -49,7 +49,7 @@ export default function Explore(props: CompProps) {
                 <Text style={{fontSize: 14}}>Leader</Text>
               </View>
               <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                <Icon name="check-decagram" size={26} color='#5D93E2'/>
+                <Icon name="check-decagram" size={22} color='#5D93E2'/>
               </View>
             </View>
             <View style={{flex: 1, backgroundColor: 'blue'}}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
       flex: 8
     },
     background_image: {
-      transform: [{ translateY: -620 }]
+      transform: [{ translateY: -660 }]
     },
     menu: {
       marginLeft: 30,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     },
     profile_img_container: {
       position: 'absolute',
-      top: 150,
+      top: 116,
       left: 126,
       shadowColor: '#000',
       shadowOpacity: 0.2,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     },
     info_container: {
       backgroundColor: '#FAFAFA',
-      flex: 22
+      flex: 29
     },
     label: {
         color: '#838383',
