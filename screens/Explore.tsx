@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent, Pressable } from "react-native";
 import { Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SearchBarBaseProps } from "@react-native-elements/base/dist/SearchBar/SearchBar";
@@ -275,6 +275,7 @@ export default function Explore(props: CompProps) {
                   containerStyle={{ backgroundColor: '#F9F9F9' }}
                   bottomDivider
                 >
+                  <Pressable style={{ flex: 1 }} onPress={()=>{props.navigation.navigate('Event_Details')}}>
                   <View style={[styles.container, { flexDirection: "column" }]}>
                     <View style={{ flex: 6, flexDirection: "row" }}>
                       <View style={{ flex: 6 }}><Text style={[styles.title]}>{event.name}</Text></View>
@@ -287,6 +288,7 @@ export default function Explore(props: CompProps) {
                     <View style={{ flex: 4 }} />
                     <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.startTime} - {event.endTime}</Text></View>
                   </View>
+                  </Pressable>
                 </ListItem>
               ))
             }
