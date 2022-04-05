@@ -15,6 +15,7 @@ import Favorites from './screens/Favorites';
 import Profile from './screens/Profile';
 import Event_Details from './screens/Event_Details';
 import CreateEventPage1 from './screens/CreateEventPage1';
+import CreateEventPage2 from './screens/CreateEventPage2';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -73,7 +74,11 @@ export default function App() {
         <Stack.Screen name='CreateEventPage1' component={CreateEventPage1}/>
         {props => (
                 <Event_Details {...props}/>
-              )}              
+              )}  
+        <Stack.Screen name='CreateEventPage2' component={CreateEventPage2}/>
+        {props => (
+                <Event_Details {...props}/>
+              )}            
       </Stack.Navigator>
     </NavigationContainer>
     </>
