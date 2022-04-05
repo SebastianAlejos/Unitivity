@@ -11,7 +11,7 @@ type CompProps = {
   navigation: { navigate: Function; };
 };
 
-export default function CreateEventPage1(props: CompProps) {
+export default function CreateEventPage2(props: CompProps) {
 
   return (
     <>
@@ -24,38 +24,38 @@ export default function CreateEventPage1(props: CompProps) {
         <View style={[styles.info_container]}>
           <View style={{ flex: 2 }} />
           <View style={[styles.label_container]}>
-            <Text style={[styles.label]}>Name *</Text>
+            <Text style={[styles.label]}>Description</Text>
           </View>
           <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
-          placeholder="Place event name here"
+          placeholder="Place event description here"
           />
           </View>
           <View style={[styles.label_container]}>
-            <Text style={[styles.label]}>Location *</Text>
+            <Text style={[styles.label]}>Website</Text>
           </View>
           <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
-          placeholder="Current Location"
+          placeholder="Website URL"
           />
           </View>
           <View style={[styles.label_container]}>
-            <Text style={[styles.label]}>Date *</Text>
+            <Text style={[styles.label]}>Tags</Text>
           </View>
           <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
-          placeholder="Select Date"
+          placeholder="Place tags associated with the event here"
           />
           </View>
           <View>
-            <Pressable style={styles.button} onPress={()=>{props.navigation.navigate('CreateEventPage2')}}>
-              <Text style={styles.label}>Next</Text>
+            <Pressable style={styles.button} onPress={()=>{alert('The information for the event has been saved'); props.navigation.navigate('Explore')}}>
+              <Text style={styles.label}>Submit</Text>
             </Pressable>
             <Pressable style={styles.subutton} onPress={()=>{ props.navigation.navigate('Explore')}}>
               <Text style={styles.label}>Cancel</Text>
