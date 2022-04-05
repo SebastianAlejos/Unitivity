@@ -15,6 +15,7 @@ import Favorites from './screens/Favorites';
 import Profile from './screens/Profile';
 import Event_Details from './screens/Event_Details';
 import CreateEventPage1 from './screens/CreateEventPage1';
+import Calendars from './screens/Calendar';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -73,7 +74,11 @@ export default function App() {
         <Stack.Screen name='CreateEventPage1' component={CreateEventPage1}/>
         {props => (
                 <Event_Details {...props}/>
-              )}              
+              )}
+        <Stack.Screen name='Calendars' component={Calendars}/>
+        {props => (
+                <Event_Details {...props}/>
+              )}            
       </Stack.Navigator>
     </NavigationContainer>
     </>
