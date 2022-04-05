@@ -1,5 +1,6 @@
 import {ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React from 'react';
+import CodeInput from 'react-native-confirmation-code-input';
 
 const image = { uri: "../assets/images/splash_1.png" };
 type CompProps = {
@@ -15,9 +16,15 @@ export default function CodeScreen(props: CompProps) {
       <View style={styles.container}>
         <View style={[styles.box, styles.shadowProp]}>
           <Text style={styles.title}>Enter Code</Text>
-          <TextInput
-          placeholderTextColor="#000" 
-          style={styles.input}
+          <CodeInput
+            activeColor='rgba(3, 218,198, 1)'
+            secureTextEntry
+            className={'border-b'}
+            space={10}
+            size={50}
+            codeLength={4}
+            inputPosition='center'
+            onFulfill={(code) => props.navigation.navigate('Explore')}
           />
           <Text>Check your .edu email for the six-digit code.</Text>
           <Pressable style={styles.button} onPress={()=>{props.navigation.navigate('CreatePassword')}}>
@@ -40,6 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    maxHeight:600,
   },
   text:{
     color: '#6200EE'
@@ -50,7 +58,7 @@ const styles = StyleSheet.create({
     color: '#6200EE',
   },
   separator: {
-    marginVertical: 30,
+    marginVertical: 10,
     height: 1,
     width: '80%',
   },
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 3,
     backgroundColor: '#6200EE',
-    marginTop:20,
+    marginTop:10,
   },
   subutton: {
     alignItems: 'center',
