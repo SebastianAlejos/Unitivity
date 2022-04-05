@@ -105,7 +105,7 @@ export default function Explore(props: CompProps) {
   ];
 
   const panelRef = useRef<SlidingUpPanel | null>(null);
-  const [panelPositionVal] = useState(new Animated.Value(draggableRange.bottom));
+  const [panelPositionVal] = useState(new Animated.Value(deviceHeight / 3));
 
   const [scrollEnabled, setScrollEnabled] = useState(false);
   const [allowDragging, setAllowDragging] = useState(true);
@@ -228,7 +228,7 @@ export default function Explore(props: CompProps) {
           containerStyle={{
             width: 150,
             marginHorizontal: 220,
-            marginTop: 405
+            marginTop: 360
           }}
           titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
           onPress={() => props.navigation.navigate('TestPanel')}
@@ -248,7 +248,6 @@ export default function Explore(props: CompProps) {
         onDragStart={onDragStart}
       >
         <View style={[styles.event_details_container]}>
-
           <View style={[styles.swipe_tab]}></View>
 
           <View>
@@ -266,8 +265,9 @@ export default function Explore(props: CompProps) {
             scrollEnabled={scrollEnabled}
             showsVerticalScrollIndicator={false}
             bounces={false}
-            onMomentumScrollEnd={onMomentumScrollEnd}>
-            
+            onMomentumScrollEnd={onMomentumScrollEnd}
+          >
+
             {
               eventList.map((event, i) => (
                 <ListItem
@@ -275,19 +275,19 @@ export default function Explore(props: CompProps) {
                   containerStyle={{ backgroundColor: '#F9F9F9' }}
                   bottomDivider
                 >
-                  <Pressable style={{ flex: 1 }} onPress={()=>{props.navigation.navigate('Event_Details')}}>
-                  <View style={[styles.container, { flexDirection: "column" }]}>
-                    <View style={{ flex: 6, flexDirection: "row" }}>
-                      <View style={{ flex: 6 }}><Text style={[styles.title]}>{event.name}</Text></View>
-                      <View style={{ flex: 1 }}><Icon name="heart-outline" color="#000" size={30} onPress={() => alert("favorite")}></Icon></View>
-                      <View style={{ flex: 1 }}><Icon name="plus" color="#000" size={30} onPress={() => alert("add event")}></Icon></View>
+                  <Pressable style={{ flex: 1 }} onPress={() => { props.navigation.navigate('Event_Details') }}>
+                    <View style={[styles.container, { flexDirection: "column" }]}>
+                      <View style={{ flex: 6, flexDirection: "row" }}>
+                        <View style={{ flex: 6 }}><Text style={[styles.title]}>{event.name}</Text></View>
+                        <View style={{ flex: 1 }}><Icon name="heart-outline" color="#000" size={30} onPress={() => alert("favorite")}></Icon></View>
+                        <View style={{ flex: 1 }}><Icon name="plus" color="#000" size={30} onPress={() => alert("add event")}></Icon></View>
+                      </View>
+                      <View style={{ flex: 4, flexDirection: "row", }} ><Text style={[styles.subtitle]}>{event.distance} · </Text>
+                        <Text style={[styles.special_sub]}>{event.shortDate}</Text></View>
+                      <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.date}</Text></View>
+                      <View style={{ flex: 4 }} />
+                      <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.startTime} - {event.endTime}</Text></View>
                     </View>
-                    <View style={{ flex: 4, flexDirection: "row", }} ><Text style={[styles.subtitle]}>{event.distance} · </Text>
-                      <Text style={[styles.special_sub]}>{event.shortDate}</Text></View>
-                    <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.date}</Text></View>
-                    <View style={{ flex: 4 }} />
-                    <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.startTime} - {event.endTime}</Text></View>
-                  </View>
                   </Pressable>
                 </ListItem>
               ))

@@ -151,6 +151,8 @@ export default function Explore(props: CompProps) {
                 }}
                 iconRight
                 containerStyle={{ marginVertical: 5 }}
+                style={[styles.tag]}
+                onPress={() => alert('delete tag')}
               />
               <Chip
                 title="tag"
@@ -165,6 +167,7 @@ export default function Explore(props: CompProps) {
                 iconRight
                 containerStyle={{ marginVertical: 5 }}
                 style={[styles.tag]}
+                onPress={() => alert('delete tag')}
               />
               <Chip
                 title="tag"
@@ -179,6 +182,7 @@ export default function Explore(props: CompProps) {
                 iconRight
                 containerStyle={{ marginVertical: 5 }}
                 style={[styles.tag]}
+                onPress={() => alert('delete tag')}
               />
 
             </View>
@@ -280,6 +284,7 @@ const styles = StyleSheet.create({
   tag: {
     backgroundColor: '#DFDFDF',
     marginHorizontal: 5,
-    height: 40
+    height: 40,
+    borderRadius: 30
   }
 });

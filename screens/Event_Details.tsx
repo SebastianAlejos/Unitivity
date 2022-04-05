@@ -1,15 +1,14 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StyleSheet, Text, View, ScrollView, Linking } from "react-native";
-import { Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
-import { useLinkBuilder } from '@react-navigation/native';
+import { StyleSheet, Text, View, ScrollView, Linking, TouchableHighlight, TouchableOpacity, Image } from "react-native";
+import { Header, Button } from "@react-native-elements/base";
 
 
 type CompProps = {
   /* The props passed by navigation are much more complex,
    *  but we are only using the navigate and goBack functions in this example
    */
-  navigation: { navigate: Function; };
+  navigation: { navigate: Function; goBack: Function };
 };
 
 export default function Event_Details(props: CompProps) {
@@ -63,30 +62,34 @@ export default function Event_Details(props: CompProps) {
           <ScrollView style={[styles.info_container]}>
             <Text style={{ fontSize: 14, lineHeight: 20 }}>{eventDeets.description}</Text>
           </ScrollView>
-          <View style={[styles.gallery_container]} onPress={() => alert('go to gallery')}>
-            <View style={{ flex: 2, margin: 2, backgroundColor: 'gray', borderRadius: 10 }}>
 
-            </View>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
-              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
+          <TouchableOpacity onPress={() => alert('go to gallery')} style={{ flex: 0.8 }}>
 
+            <View style={[styles.gallery_container]}>
+              <View style={{ flex: 2, margin: 2, justifyContent: 'center' }}>
+                <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
               </View>
-              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
-
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{ flex: 1, margin: 2 }}>
+                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                </View>
+                <View style={{ flex: 1, margin: 2 }}>
+                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                </View>
+              </View>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{ flex: 1, margin: 2 }}>
+                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                </View>
+                <View style={{ flex: 1, margin: 2 }}>
+                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                </View>
+              </View>
+              <View style={{ flex: 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                <Text style={{ color: '#707070', textDecorationLine: 'underline' }}>see more...</Text>
               </View>
             </View>
-            <View style={{ flex: 1, flexDirection: 'row'  }}>
-              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
-
-              </View>
-              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
-
-              </View>
-            </View>
-            <View style={{ flex: 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-              <Text style={{ color: '#707070', textDecorationLine: 'underline'}}>see more...</Text>
-            </View>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={{ flex: 0.8, flexDirection: 'row' }}>
@@ -95,31 +98,33 @@ export default function Event_Details(props: CompProps) {
         </View>
       </View>
 
-      <View style={[styles.location_info_container]}>
-        <View style={[styles.top_info_container]}>
-          <View style={{ flexDirection: 'row' }}>
-            <Text style={{ flex: 3, fontSize: 40, fontWeight: '700' }}>{eventDeets.distance}</Text>
-            <Button
-              title="Open in Maps"
-              buttonStyle={{
-                backgroundColor: '#6200EE',
-                borderRadius: 30
-              }}
-              containerStyle={{ width: 120, flex: 2 }}
-              titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
-              onPress={() => alert("open maps")}
-            />
+      <TouchableHighlight onPress={() => props.navigation.goBack()} style={{ flex: 3 }}>
+        <View style={[styles.location_info_container]}>
+          <View style={[styles.top_info_container]}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ flex: 3, fontSize: 40, fontWeight: '700' }}>{eventDeets.distance}</Text>
+              <Button
+                title="Open in Maps"
+                buttonStyle={{
+                  backgroundColor: '#6200EE',
+                  borderRadius: 30
+                }}
+                containerStyle={{ width: 120, flex: 2 }}
+                titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+                onPress={() => alert("open maps")}
+              />
+            </View>
+            <Text style={{ fontSize: 12 }}>from your current destination</Text>
           </View>
-          <Text style={{ fontSize: 12 }}>from your current destination</Text>
-        </View>
-        <View style={[styles.bottom_info_container]}>
-          <Text style={{ flex: 1, marginTop: 10 }}>{eventDeets.address}</Text>
-          <View style={{ flexDirection: 'row', flex: 1, alignContent: 'center' }}>
-            <Text>{eventDeets.url}</Text>
-            <Icon name="arrow-top-right-thick" size={16} />
+          <View style={[styles.bottom_info_container]}>
+            <Text style={{ flex: 1, marginTop: 10 }}>{eventDeets.address}</Text>
+            <View style={{ flexDirection: 'row', flex: 1, alignContent: 'center' }}>
+              <Text onPress={() => Linking.openURL(eventDeets.url)} style={{ textDecorationLine: 'underline' }}>{eventDeets.url}</Text>
+              <Icon name="arrow-top-right-thick" size={16} />
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableHighlight>
     </>
   )
 }
@@ -153,12 +158,13 @@ const styles = StyleSheet.create({
     margin: 20
   },
   gallery_container: {
-    flex: 0.8,
+    flex: 1,
     margin: 20,
-    marginLeft: 0
+    marginLeft: 0,
+    overflow: 'hidden'
   },
   location_info_container: {
-    flex: 2,
+    flex: 1,
     backgroundColor: '#EEE',
     padding: 40
   },

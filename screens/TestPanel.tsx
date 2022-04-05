@@ -98,13 +98,10 @@ export default function TestPanel() {
       allowDragging={allowDragging}
       onMomentumDragEnd={onMomentumDragEnd}
       onDragStart={onDragStart}
-      //style={{ flex: 1 }}
     >
       <View style={styles.panelContent}>
         <View style={[styles.grabber]}></View>
         <ScrollView
-          style={{ flex: 1 }}
-          //contentContainerStyle={{flex: 1}}
           scrollEnabled={scrollEnabled}
           showsVerticalScrollIndicator={false}
           bounces={false}
@@ -132,19 +129,16 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     margin: 5,
-    backgroundColor: 'blue',
-    height: 90
+    backgroundColor: 'blue'
   },
   lastitem: {
     flex: 1,
     margin: 5,
-    backgroundColor: 'red',
-    height: 90
+    backgroundColor: 'red'
   },
   grabber: {
-    flexGrow: 1,
+    flexGrow: 0.1,
     margin: 5,
-    height: 30,
     backgroundColor: 'green'
   }
 });
