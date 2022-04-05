@@ -1,7 +1,9 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Linking } from "react-native";
 import { Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
+import { useLinkBuilder } from '@react-navigation/native';
+
 
 type CompProps = {
   /* The props passed by navigation are much more complex,
@@ -22,7 +24,7 @@ export default function Event_Details(props: CompProps) {
     endTime: '8:30 PM',
     description: 'The description of the event will go here, along with any important information that the event creator has to say. The description of the event will go here, along with any important information that the event creator has to say. The description of the event will go here, along with any important information that the event creator has to say. The description of the event will go here, along with any important information that the event creator has to say.',
     address: '1 University Avenue, Mechanicsburg, PA',
-    url: 'www.messiah.edu'
+    url: 'https://www.messiah.edu'
   }
 
   return (
@@ -59,10 +61,31 @@ export default function Event_Details(props: CompProps) {
 
         <View style={{ flex: 4, flexDirection: 'row' }}>
           <ScrollView style={[styles.info_container]}>
-            <Text>{eventDeets.description}</Text>
+            <Text style={{ fontSize: 14, lineHeight: 20 }}>{eventDeets.description}</Text>
           </ScrollView>
-          <View style={[styles.gallery_container]}>
+          <View style={[styles.gallery_container]} onPress={() => alert('go to gallery')}>
+            <View style={{ flex: 2, margin: 2, backgroundColor: 'gray', borderRadius: 10 }}>
 
+            </View>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
+
+              </View>
+              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
+
+              </View>
+            </View>
+            <View style={{ flex: 1, flexDirection: 'row'  }}>
+              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
+
+              </View>
+              <View style={{ flex: 1, margin: 2, backgroundColor: 'gray', borderRadius: 10  }}>
+
+              </View>
+            </View>
+            <View style={{ flex: 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+              <Text style={{ color: '#707070', textDecorationLine: 'underline'}}>see more...</Text>
+            </View>
           </View>
         </View>
 
@@ -74,10 +97,27 @@ export default function Event_Details(props: CompProps) {
 
       <View style={[styles.location_info_container]}>
         <View style={[styles.top_info_container]}>
-
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ flex: 3, fontSize: 40, fontWeight: '700' }}>{eventDeets.distance}</Text>
+            <Button
+              title="Open in Maps"
+              buttonStyle={{
+                backgroundColor: '#6200EE',
+                borderRadius: 30
+              }}
+              containerStyle={{ width: 120, flex: 2 }}
+              titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+              onPress={() => alert("open maps")}
+            />
+          </View>
+          <Text style={{ fontSize: 12 }}>from your current destination</Text>
         </View>
         <View style={[styles.bottom_info_container]}>
-
+          <Text style={{ flex: 1, marginTop: 10 }}>{eventDeets.address}</Text>
+          <View style={{ flexDirection: 'row', flex: 1, alignContent: 'center' }}>
+            <Text>{eventDeets.url}</Text>
+            <Icon name="arrow-top-right-thick" size={16} />
+          </View>
         </View>
       </View>
     </>
@@ -87,7 +127,7 @@ export default function Event_Details(props: CompProps) {
 const styles = StyleSheet.create({
   back_header: {
     flex: 1,
-    marginLeft: 50,
+    marginLeft: 40,
     marginTop: 80
   },
   header_container: {
@@ -115,16 +155,16 @@ const styles = StyleSheet.create({
   gallery_container: {
     flex: 0.8,
     margin: 20,
-    marginLeft: 0,
-    backgroundColor: 'green'
+    marginLeft: 0
   },
   location_info_container: {
     flex: 2,
-    backgroundColor: '#EEEEDD',
+    backgroundColor: '#EEE',
     padding: 40
   },
   top_info_container: {
-    flex: 1
+    flex: 1,
+    marginRight: -20
   },
   bottom_info_container: {
     flex: 1,
