@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StyleSheet, Text, View, ScrollView, Linking, TouchableHighlight, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Linking, TouchableOpacity, Image } from "react-native";
 import { Header, Button } from "@react-native-elements/base";
 
 
@@ -28,103 +28,108 @@ export default function Event_Details(props: CompProps) {
 
   return (
     <>
-      <View style={[styles.main_container]}>
-        <View style={[styles.back_header]}>
-          <Icon name="arrow-left-circle-outline" color="#000" size={32} onPress={() => props.navigation.goBack()}></Icon>
-        </View>
-
-        <View style={[styles.header_container]}>
-          <View style={[styles.header_status_icon_container]}>
-            <View style={{ flex: 1 }}>
-              <Icon name="check-decagram" size={30} color='#5D93E2' />
-            </View>
-            <View style={{ flex: 1 }}></View>
+      <View style={{ backgroundColor: '#EEE', flex: 2.5 }}>
+        <View style={[styles.main_container]}>
+          <View style={[styles.back_header]}>
+            <Icon name="arrow-left-circle-outline" color="#000" size={32} onPress={() => props.navigation.goBack()}></Icon>
           </View>
-          <View style={[styles.header_name_time_container]}>
-            <View style={{ flex: 1 }}>
-              <Text style={{ fontSize: 24, fontWeight: '700' }}>{eventDeets.name}</Text>
+
+          <View style={[styles.header_container]}>
+            <View style={[styles.header_status_icon_container]}>
+              <View style={{ flex: 1 }}>
+                <Icon name="check-decagram" size={30} color='#5D93E2' />
+              </View>
+              <View style={{ flex: 1 }}></View>
             </View>
-            <View style={{ flex: 1 }}>
-              <Text style={{ fontSize: 16, color: '#018786' }}>{eventDeets.startTime}  - {eventDeets.endTime}</Text>
+            <View style={[styles.header_name_time_container]}>
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 24, fontWeight: '700' }}>{eventDeets.name}</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 16, color: '#018786' }}>{eventDeets.startTime}  - {eventDeets.endTime}</Text>
+              </View>
+            </View>
+            <View style={[styles.header_info_date_container]}>
+              <View style={{ flex: 1 }}>
+                <Icon name="dots-horizontal-circle-outline" size={30} onPress={() => alert('open info')} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 16, color: '#018786' }}>{eventDeets.date}</Text>
+              </View>
             </View>
           </View>
-          <View style={[styles.header_info_date_container]}>
-            <View style={{ flex: 1 }}>
-              <Icon name="dots-horizontal-circle-outline" size={30} onPress={() => alert('open info')} />
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={{ fontSize: 16, color: '#018786' }}>{eventDeets.date}</Text>
-            </View>
+
+          <View style={{ flex: 4, flexDirection: 'row', borderBottomRightRadius: 30 }}>
+            <ScrollView style={[styles.info_container]}>
+              <Text style={{ fontSize: 14, lineHeight: 20 }}>{eventDeets.description}</Text>
+            </ScrollView>
+
+            <TouchableOpacity onPress={() => alert('go to gallery')} style={{ flex: 0.8 }}>
+
+              <View style={[styles.gallery_container]}>
+                <View style={{ flex: 2, margin: 2, justifyContent: 'center' }}>
+                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  <View style={{ flex: 1, margin: 2 }}>
+                    <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                  </View>
+                  <View style={{ flex: 1, margin: 2 }}>
+                    <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                  </View>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  <View style={{ flex: 1, margin: 2 }}>
+                    <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                  </View>
+                  <View style={{ flex: 1, margin: 2 }}>
+                    <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+                  </View>
+                </View>
+                <View style={{ flex: 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                  <Text style={{ color: '#707070', textDecorationLine: 'underline' }}>see more...</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ flex: 0.8, flexDirection: 'row', borderBottomRightRadius: 30 }}>
+            <Icon name="heart-outline" style={{ marginLeft: 20 }} size={30} onPress={() => alert('favorite')} />
+            <Icon name="plus" size={30} style={{ marginLeft: 15 }} onPress={() => alert('add event')} />
           </View>
         </View>
-
-        <View style={{ flex: 4, flexDirection: 'row' }}>
-          <ScrollView style={[styles.info_container]}>
-            <Text style={{ fontSize: 14, lineHeight: 20 }}>{eventDeets.description}</Text>
-          </ScrollView>
-
-          <TouchableOpacity onPress={() => alert('go to gallery')} style={{ flex: 0.8 }}>
-
-            <View style={[styles.gallery_container]}>
-              <View style={{ flex: 2, margin: 2, justifyContent: 'center' }}>
-                <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
+        </View>
+        
+        <View style={{flex: 1, backgroundColor: '#FFF'}}>
+        <TouchableOpacity onPress={() => props.navigation.goBack()} style={{ flex: 3 }}>
+          <View style={[styles.location_info_container]}>
+            <View style={[styles.top_info_container]}>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ flex: 3, fontSize: 40, fontWeight: '700' }}>{eventDeets.distance}</Text>
+                <Button
+                  title="Open in Maps"
+                  buttonStyle={{
+                    backgroundColor: '#6200EE',
+                    borderRadius: 30,
+                    height: 40
+                  }}
+                  containerStyle={{ width: 120, flex: 2 }}
+                  titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+                  onPress={() => alert("open maps")}
+                />
               </View>
-              <View style={{ flex: 1, flexDirection: 'row' }}>
-                <View style={{ flex: 1, margin: 2 }}>
-                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
-                </View>
-                <View style={{ flex: 1, margin: 2 }}>
-                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
-                </View>
-              </View>
-              <View style={{ flex: 1, flexDirection: 'row' }}>
-                <View style={{ flex: 1, margin: 2 }}>
-                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
-                </View>
-                <View style={{ flex: 1, margin: 2 }}>
-                  <Image style={{ flex: 1, borderRadius: 10, width: '100%' }} source={require('../assets/images/bike_pic.jpeg')} resizeMode='cover' />
-                </View>
-              </View>
-              <View style={{ flex: 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                <Text style={{ color: '#707070', textDecorationLine: 'underline' }}>see more...</Text>
+              <Text style={{ fontSize: 12 }}>from your current destination</Text>
+            </View>
+            <View style={[styles.bottom_info_container]}>
+              <Text style={{ flex: 1, marginTop: 10 }}>{eventDeets.address}</Text>
+              <View style={{ flexDirection: 'row', flex: 1, alignContent: 'center' }}>
+                <Text onPress={() => Linking.openURL(eventDeets.url)} style={{ textDecorationLine: 'underline' }}>{eventDeets.url}</Text>
+                <Icon name="arrow-top-right-thick" size={16} />
               </View>
             </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={{ flex: 0.8, flexDirection: 'row' }}>
-          <Icon name="heart-outline" style={{ marginLeft: 20 }} size={30} onPress={() => alert('favorite')} />
-          <Icon name="plus" size={30} style={{ marginLeft: 15 }} onPress={() => alert('add event')} />
-        </View>
+          </View>
+        </TouchableOpacity>
       </View>
-
-      <TouchableHighlight onPress={() => props.navigation.goBack()} style={{ flex: 3 }}>
-        <View style={[styles.location_info_container]}>
-          <View style={[styles.top_info_container]}>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ flex: 3, fontSize: 40, fontWeight: '700' }}>{eventDeets.distance}</Text>
-              <Button
-                title="Open in Maps"
-                buttonStyle={{
-                  backgroundColor: '#6200EE',
-                  borderRadius: 30
-                }}
-                containerStyle={{ width: 120, flex: 2 }}
-                titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
-                onPress={() => alert("open maps")}
-              />
-            </View>
-            <Text style={{ fontSize: 12 }}>from your current destination</Text>
-          </View>
-          <View style={[styles.bottom_info_container]}>
-            <Text style={{ flex: 1, marginTop: 10 }}>{eventDeets.address}</Text>
-            <View style={{ flexDirection: 'row', flex: 1, alignContent: 'center' }}>
-              <Text onPress={() => Linking.openURL(eventDeets.url)} style={{ textDecorationLine: 'underline' }}>{eventDeets.url}</Text>
-              <Icon name="arrow-top-right-thick" size={16} />
-            </View>
-          </View>
-        </View>
-      </TouchableHighlight>
     </>
   )
 }
@@ -166,7 +171,8 @@ const styles = StyleSheet.create({
   location_info_container: {
     flex: 1,
     backgroundColor: '#EEE',
-    padding: 40
+    padding: 40,
+    borderTopLeftRadius: 60
   },
   top_info_container: {
     flex: 1,
@@ -179,9 +185,11 @@ const styles = StyleSheet.create({
   },
   main_container: {
     flex: 8,
-    shadowColor: '#000',
-    shadowOpacity: 90,
-    shadowRadius: 5,
-    backgroundColor: '#FFF'
+    //shadowColor: '#000',
+    //shadowOpacity: 90,
+    //shadowRadius: 5,
+    //shadowOffset: {width: 10, height: 10},
+    backgroundColor: '#FFF',
+    borderBottomRightRadius: 60
   }
 });
