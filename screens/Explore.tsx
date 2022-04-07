@@ -233,6 +233,21 @@ export default function Explore(props: CompProps) {
           titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
           onPress={() => props.navigation.navigate('TestPanel')}
         />
+
+        <Button
+          title="Create an Event"
+          buttonStyle={{
+            backgroundColor: '#6200EE',
+            borderRadius: 30,
+          }}
+          containerStyle={{
+            width: 150,
+            marginHorizontal: 220,
+            marginTop: 360
+          }}
+          titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+          onPress={() => props.navigation.navigate('CreateEventPage1')}
+        />
       </View>
 
       <SlidingUpPanel
