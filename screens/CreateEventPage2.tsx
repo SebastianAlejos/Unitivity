@@ -26,33 +26,27 @@ export default function CreateEventPage2(props: CompProps) {
           <View style={[styles.label_container]}>
             <Text style={[styles.label]}>Description</Text>
           </View>
-          <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
           placeholder="Place event description here"
           />
-          </View>
           <View style={[styles.label_container]}>
             <Text style={[styles.label]}>Website</Text>
           </View>
-          <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
           placeholder="Website URL"
           />
-          </View>
           <View style={[styles.label_container]}>
             <Text style={[styles.label]}>Tags</Text>
           </View>
-          <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
           placeholder="Place tags associated with the event here"
           />
-          </View>
           <View>
             <Pressable style={styles.button} onPress={()=>{alert('The information for the event has been saved'); props.navigation.navigate('Explore')}}>
               <Text style={styles.label}>Submit</Text>
