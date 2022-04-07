@@ -23,36 +23,30 @@ export default function CreateEventPage1(props: CompProps) {
 
         <View style={[styles.info_container]}>
           <View style={{ flex: 2 }} />
-          <View style={[styles.label_container]}>
-            <Text style={[styles.label]}>Name *</Text>
-          </View>
-          <View style={[styles.field_container]}>
-          <TextInput
-          placeholderTextColor="#000" 
-          style={styles.input}
-          placeholder="Place event name here"
-          />
-          </View>
+            <View style={[styles.label_container]}>
+              <Text style={[styles.label]}>Name *</Text>
+            </View>
+            <TextInput
+            placeholderTextColor="#000" 
+            style={styles.input}
+            placeholder="Place event name here"
+            />
           <View style={[styles.label_container]}>
             <Text style={[styles.label]}>Location *</Text>
           </View>
-          <View style={[styles.field_container]}>
-          <TextInput
-          placeholderTextColor="#000" 
-          style={styles.input}
-          placeholder="Current Location"
-          />
-          </View>
+            <TextInput
+            placeholderTextColor="#000" 
+            style={styles.input}
+            placeholder="Current Location"
+            />
           <View style={[styles.label_container]}>
             <Text style={[styles.label]}>Date *</Text>
           </View>
-          <View style={[styles.field_container]}>
           <TextInput
           placeholderTextColor="#000" 
           style={styles.input}
           placeholder="Select Date"
           />
-          </View>
           <View>
             <Pressable style={styles.button} onPress={()=>{props.navigation.navigate('CreateEventPage2')}}>
               <Text style={styles.label}>Next</Text>

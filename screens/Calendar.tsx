@@ -26,6 +26,9 @@ type CompProps = {
                 markedDate={['2018-05-04', '2018-05-15', '2018-06-04', '2018-05-01']}
                 weekStartsOn={0} // 0,1,2,3,4,5,6 for S M T W T F S, defaults to 0
                 />
+              <View style={[styles.box, styles.shadowProp]}>
+
+              </View>
     </View>
     )};
  const styles = StyleSheet.create({
@@ -52,5 +55,19 @@ type CompProps = {
         backgroundColor: '#FFFF',
         position: 'relative', 
         top:100, 
+    },
+    box:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      height:'50%', 
+      width:'80%',
+      borderRadius:15, 
+      backgroundColor:'#F4F4F4',
+    },
+    shadowProp: {
+      shadowColor: '#171717',
+      shadowOffset: {width: -2, height: 4},
+      shadowOpacity: 0.4,
+      shadowRadius: 3,
     },
 });     

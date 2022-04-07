@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent, ImageBackground } from "react-native";
 import { Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
+import Event_Details from './Event_Details';
 
 type CompProps = {
     /* The props passed by navigation are much more complex,
@@ -71,7 +72,7 @@ export default function Explore(props: CompProps) {
                     >
                     <View style={[styles.container, { flexDirection: "column" }]}>
                         <View style={{ flex: 6, flexDirection: "row" }}>
-                        <View style={{ flex: 7 }}><Text style={[styles.title]}>{event.name}</Text></View>
+                        <View style={{ flex: 7 }}><Text style={[styles.title]} onPress={()=> props.navigation.navigate('Event_Details')}>{event.name}</Text></View>
                         <View style={{ flex: 1 }}><Icon name="heart" color="#000" size={30} onPress={() => alert("favorite")}></Icon></View>
                         </View>
                         <View style={{ flex: 4, flexDirection: "row", }} ><Text style={[styles.subtitle]}>{event.distance} · </Text>

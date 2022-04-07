@@ -34,6 +34,9 @@ export default function Menu(props: CompProps) {
             <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Favorites</Text>
         </Pressable> 
+        <Pressable style={styles.add} onPress={()=>props.navigation.navigate('CreateEventPage1')}>
+            <Icon name="plus-circle-outline" style={styles.icons} size={80}></Icon>
+        </Pressable> 
     </View>
     </>
   );
@@ -69,5 +72,12 @@ const styles = StyleSheet.create({
     flexDirection:'row', 
     flexWrap:'wrap',
     margin:10
+  },
+  add:{
+    color:"#FFFF", 
+    alignSelf: 'flex-start',
+    position: 'absolute',
+    bottom:85,
+    right: 30,
   },
 });
