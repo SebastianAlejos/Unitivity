@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Button, Platform, ImageBackground, ScrollView } from 'react-native';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CalendarStrip from 'react-native-slideable-calendar-strip';
-import { todayString } from 'react-native-calendars/src/expandableCalendar/commons';
-import { ListItem } from '@react-native-elements/base';
+import { Header, ListItem } from '@react-native-elements/base';
 
 type CompProps = {
   navigation: { navigate: Function; goBack:Function};
@@ -42,15 +40,63 @@ type CompProps = {
         date: 'Tues, June 8',
         startTime: '7:00 PM',
         endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
       }
     ]
     return(
       <ImageBackground source={require("../assets/images/splash_2.png")} resizeMode="cover" style={styles.image}>
-        <View style={styles.container}>
-          <Icon name="menu" size={44} style={styles.icon} onPress={() => props.navigation.navigate('Menu')}></Icon>
+        <Header
+                // Header with menu icon and title
+                containerStyle={[styles.header]}
+                backgroundColor="#FFF"
+                barStyle="default"
+                centerComponent={{
+                    text: "Events",
+                    style: { color: "#000", fontSize: 36, fontWeight: "700" }
+                }}
+                centerContainerStyle={{}}
+                leftComponent={<Icon name="menu" color="#000" size={44} onPress={() => props.navigation.navigate('Menu')}></Icon>}
+                leftContainerStyle={{}}
+                placement="left"
+                rightComponent={{}}
+                rightContainerStyle={{}}
+                statusBarProps={{}}
+            ></Header>
+        <View style={styles.container}> 
           <CalendarStrip
             style={styles.calendar}
-              selectedDate={'2022-04-07'}
+              selectedDate={'2022-04-10'}
               onPressDate={(date) => {
                   this.setState({ selectedDate: date });
                 }}
@@ -62,7 +108,6 @@ type CompProps = {
                 markedDate={['2018-05-04', '2018-05-15', '2018-06-04', '2018-05-01']}
                 weekStartsOn={0} // 0,1,2,3,4,5,6 for S M T W T F S, defaults to 0
           />
-          <View style={[styles.box, styles.shadowProp]}>
           <ScrollView>
                 {
                 eventList.map((event, i) => (
@@ -86,7 +131,6 @@ type CompProps = {
                 ))
                 }
             </ScrollView>
-          </View>
         </View>
       </ImageBackground>
     )};
@@ -125,14 +169,14 @@ type CompProps = {
     calendar:{
         borderRadius:90,
         backgroundColor: '#FFFF',
-        position: 'relative', 
-        top:100, 
+        position: 'relative',
+        top:10, 
     },
     box:{
       alignItems: 'center',
       justifyContent: 'center',
-      height:'60%', 
-      width:'80%',
+      height:'80%', 
+      width:'100%',
       borderRadius:25, 
       backgroundColor:'#F4F4F4',
     },
@@ -148,4 +192,7 @@ type CompProps = {
       width:'100%', 
       borderRadius:25, 
     },
+    header: {
+      borderColor: '#000'
+  },
 });     
