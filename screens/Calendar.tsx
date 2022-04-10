@@ -1,22 +1,58 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, Button, Platform, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Button, Platform, ImageBackground, ScrollView } from 'react-native';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CalendarStrip from 'react-native-slideable-calendar-strip';
 import { todayString } from 'react-native-calendars/src/expandableCalendar/commons';
+import { ListItem } from '@react-native-elements/base';
 
 type CompProps = {
-    navigation: { navigate: Function; goBack:Function};
+  navigation: { navigate: Function; goBack:Function};
   };
   export default function Calendars(props: CompProps) {
-    return (
-             <View style={styles.container}>
-             <Icon name="menu" size={44} style={styles.icon} onPress={() => props.navigation.navigate('Menu')}></Icon>
-             <CalendarStrip
-                style={styles.calendar}
-                selectedDate={'2022-04-07'}
-                onPressDate={(date) => {
-                    this.setState({ selectedDate: date });
+    const eventList = [
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      },
+      {
+        name: 'Open Lanes Club',
+        distance: '5.0 mi',
+        shortDate: 'Tomorrow',
+        date: 'Tues, June 8',
+        startTime: '7:00 PM',
+        endTime: '8:30 PM'
+      }
+    ]
+    return(
+      <ImageBackground source={require("../assets/images/splash_2.png")} resizeMode="cover" style={styles.image}>
+        <View style={styles.container}>
+          <Icon name="menu" size={44} style={styles.icon} onPress={() => props.navigation.navigate('Menu')}></Icon>
+          <CalendarStrip
+            style={styles.calendar}
+              selectedDate={'2022-04-07'}
+              onPressDate={(date) => {
+                  this.setState({ selectedDate: date });
                 }}
                 onPressGoToday={(today) => {
                 }}
@@ -25,11 +61,34 @@ type CompProps = {
                 }}
                 markedDate={['2018-05-04', '2018-05-15', '2018-06-04', '2018-05-01']}
                 weekStartsOn={0} // 0,1,2,3,4,5,6 for S M T W T F S, defaults to 0
-                />
-              <View style={[styles.box, styles.shadowProp]}>
-
-              </View>
-    </View>
+          />
+          <View style={[styles.box, styles.shadowProp]}>
+          <ScrollView>
+                {
+                eventList.map((event, i) => (
+                    <ListItem
+                    key={i}
+                    containerStyle={{ backgroundColor: '#FFF' }}
+                    bottomDivider
+                    >
+                    <View style={[styles.events, { flexDirection: "column" }]}>
+                        <View style={{ flex: 6, flexDirection: "row" }}>
+                        <View style={{ flex: 7 }}><Text style={[styles.title]} onPress={()=> props.navigation.navigate('Event_Details')}>{event.name}</Text></View>
+                        <View style={{ flex: 1 }}><Icon name="heart" color="#000" size={30} onPress={() => alert("favorite")}></Icon></View>
+                        </View>
+                        <View style={{ flex: 4, flexDirection: "row", }} ><Text style={[styles.subtitle]}>{event.distance} · </Text>
+                        <Text style={[styles.special_sub]}>{event.shortDate}</Text></View>
+                        <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.date}</Text></View>
+                        <View style={{ flex: 4 }} />
+                        <View style={{ flex: 4 }} ><Text style={[styles.subtitle]}>{event.startTime} - {event.endTime}</Text></View>
+                    </View>
+                    </ListItem>
+                ))
+                }
+            </ScrollView>
+          </View>
+        </View>
+      </ImageBackground>
     )};
  const styles = StyleSheet.create({
      image: {
@@ -37,6 +96,19 @@ type CompProps = {
         width:'100%',
         height:'100%',
         justifyContent: "center"
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: "700"
+    },
+    subtitle: {
+      fontSize: 15,
+      color: 'gray'
+    },
+    special_sub: {
+      fontSize: 15,
+      color: '#03DAC6',
+      fontWeight: "600"
     },
     icon:{
         color:"#018786", 
@@ -59,9 +131,9 @@ type CompProps = {
     box:{
       alignItems: 'center',
       justifyContent: 'center',
-      height:'50%', 
+      height:'60%', 
       width:'80%',
-      borderRadius:15, 
+      borderRadius:25, 
       backgroundColor:'#F4F4F4',
     },
     shadowProp: {
@@ -69,5 +141,11 @@ type CompProps = {
       shadowOffset: {width: -2, height: 4},
       shadowOpacity: 0.4,
       shadowRadius: 3,
+    },
+    events:{
+      paddingTop:20,
+      height: '100%', 
+      width:'100%', 
+      borderRadius:25, 
     },
 });     
