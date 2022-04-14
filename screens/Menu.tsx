@@ -26,7 +26,7 @@ export default function Menu(props: CompProps) {
             <Icon name="account-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Profile</Text>
         </Pressable> 
-        <Pressable style={styles.pressable} onPress={()=>{alert('Preferences will be here')}}>
+        <Pressable style={styles.pressable} onPress={()=>{props.navigation.navigate('Preferences')}}>
             <Icon name="cog" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Preferences</Text>
         </Pressable> 
