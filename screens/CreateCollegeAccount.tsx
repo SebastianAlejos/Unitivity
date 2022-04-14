@@ -31,12 +31,9 @@ export default function CreateCollegeAccount(props: CompProps) {
           style={styles.input}
           placeholder="Retype administrative email"
           />
-          <Text style={styles.text}>All accounts must be created using a .edu email address.</Text>
+          <Text style={styles.text}>College accounts get automatic institution credibility. College accounts cost $49.99 USD.</Text>
           <Pressable style={styles.button} onPress={()=>{ alert('You have created an account for your college successfully'); }}>
-            <Text style={styles.label}>Submit</Text>
-          </Pressable>
-          <Pressable onPress={()=>{props.navigation.goBack()}}>
-            <Text style={styles.text}>Cancel</Text>
+            <Text style={styles.label}>Checkout</Text>
           </Pressable>
         </View>
       </View>
