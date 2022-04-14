@@ -18,6 +18,7 @@ import CreateEventPage1 from './screens/CreateEventPage1';
 import Calendars from './screens/Calendar';
 import CreateEventPage2 from './screens/CreateEventPage2';
 import Preferences from './screens/Preferences';
+import CreateCollegeAccount from './screens/CreateCollegeAccount';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -88,7 +89,11 @@ export default function App() {
         <Stack.Screen name='Preferences' component={Preferences}/>
         {props => (
                 <Preferences {...props}/>
-              )}         
+              )}     
+        <Stack.Screen name='CreateCollegeAccount' component={CreateCollegeAccount}/>
+        {props => (
+                <CreateCollegeAccount {...props}/>
+              )}      
       </Stack.Navigator>
     </NavigationContainer>
     </>
