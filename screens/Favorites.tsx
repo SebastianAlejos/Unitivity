@@ -53,13 +53,8 @@ export default function Explore(props: CompProps) {
                     text: "Favorites",
                     style: { color: "#000", fontSize: 36, fontWeight: "700" }
                 }}
-                centerContainerStyle={{}}
                 leftComponent={<Icon name="menu" color="#000" size={44} onPress={() => props.navigation.navigate('Menu')}></Icon>}
-                leftContainerStyle={{}}
                 placement="left"
-                rightComponent={{}}
-                rightContainerStyle={{}}
-                statusBarProps={{}}
             ></Header>
 
                 <ScrollView>

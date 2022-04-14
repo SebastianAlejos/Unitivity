@@ -20,6 +20,7 @@ import CreateEventPage2 from './screens/CreateEventPage2';
 import Preferences from './screens/Preferences';
 import CreateCollegeAccount from './screens/CreateCollegeAccount';
 import CreditCard from './screens/CreditCard';
+import CreateEvent_1 from './screens/CreateEvent_1';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -99,6 +100,10 @@ export default function App() {
         {props => (
                 <CreditCard {...props}/>
               )}    
+        <Stack.Screen name='CreateEvent_1' component={CreateEvent_1}/>
+        {props => (
+                <CreateEvent_1 {...props}/>
+              )}      
       </Stack.Navigator>
     </NavigationContainer>
     </>

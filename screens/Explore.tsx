@@ -173,13 +173,10 @@ export default function Explore(props: CompProps) {
           text: "Explore",
           style: { color: "#000", fontSize: 36, fontWeight: "700" }
         }}
-        centerContainerStyle={{}}
         leftComponent={<Icon name="menu" color="#000" size={44} onPress={() => props.navigation.navigate('Menu')}></Icon>}
-        leftContainerStyle={{}}
         placement="left"
         rightComponent={
           <Button
-            title=""
             buttonStyle={{
               backgroundColor: '#018786',
               borderRadius: 10,
@@ -193,8 +190,6 @@ export default function Explore(props: CompProps) {
             />}
           />
         }
-        rightContainerStyle={{}}
-        statusBarProps={{}}
       />
 
       <View style={[styles.mapContainer]}>
