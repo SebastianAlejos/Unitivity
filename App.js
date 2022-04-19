@@ -99,7 +99,11 @@ export default function App() {
         <Stack.Screen name='CreditCard' component={CreditCard}/>
         {props => (
                 <CreditCard {...props}/>
-              )}    
+              )} 
+        <Stack.Screen name='CheckOut' component={CheckOut}/>
+        {props => (
+                <CheckOut {...props}/>
+              )}   
         <Stack.Screen name='CreateEvent_1' component={CreateEvent_1}/>
         {props => (
                 <CreateEvent_1 {...props}/>

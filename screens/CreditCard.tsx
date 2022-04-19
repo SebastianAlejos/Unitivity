@@ -14,7 +14,7 @@ export default function CreditCard(props: CompProps) {
       <ImageBackground source={require("../assets/images/splash_1.png")} resizeMode="cover" style={styles.image}>
         <View style={styles.container}>
           <View style={[styles.box, styles.shadowProp]}>
-            <Text style={styles.title}>Unitivity Login</Text>
+            <Text style={styles.title}>Credit Card information</Text>
 
             <Text>Card Number</Text>
             <TextInput
