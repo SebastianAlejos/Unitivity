@@ -15,13 +15,14 @@ import Favorites from './screens/Favorites';
 import Profile from './screens/Profile';
 import Event_Details from './screens/Event_Details';
 import CreateEventPage1 from './screens/CreateEventPage1';
-import Calendars from './screens/Calendar';
+import Calendars from './screens/Calendars';
 import CreateEventPage2 from './screens/CreateEventPage2';
 import Preferences from './screens/Preferences';
 import CreateCollegeAccount from './screens/CreateCollegeAccount';
 import CreditCard from './screens/CreditCard';
 import CheckOut from './screens/CheckOut';
 import CreateEvent_1 from './screens/CreateEvent_1';
+import CreateEvent_2 from './screens/CreateEvent_2';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -109,6 +110,10 @@ export default function App() {
         {props => (
                 <CreateEvent_1 {...props}/>
               )}      
+        <Stack.Screen name='CreateEvent_2' component={CreateEvent_2}/>
+        {props => (
+                <CreateEvent_2 {...props}/>
+              )}  
       </Stack.Navigator>
     </NavigationContainer>
     </>
