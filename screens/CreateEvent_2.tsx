@@ -36,38 +36,35 @@ export default function CreateEvent_1(props: CompProps) {
 
         <View style={{ flex: 4 }}>
           <Input
-            containerStyle={{ flex: 4, marginVertical: 10 }}
+            containerStyle={{ flex: 1.6, paddingTop: 10 }}
             inputContainerStyle={{
               backgroundColor: "#FFF",
               paddingHorizontal: 10,
               marginVertical: 10,
               height: 80
             }}
-            rightIcon={<Pressable onPress={() => clear()}><Icon name="close" size={20} /></Pressable>}
+            rightIcon={<Pressable onPress={() => alert('delete text')}><Icon name="close" size={20} /></Pressable>}
             label="DESCRIPTION"
             placeholder="Enter Description"
             multiline
-            textAlignVertical="top"
           />
           <Input
-            containerStyle={{ flex: 4, marginVertical: 10 }}
+            containerStyle={{ flex: 1, paddingTop: 10 }}
             inputContainerStyle={{
               backgroundColor: "#FFF",
               paddingHorizontal: 10,
-              marginVertical: 10,
-              height: 60
+              marginVertical: 10
             }}
             rightIcon={<Icon name="close" size={20} />}
             label="WEBSITE"
             placeholder="Enter Website URL"
           />
           <Input
-            containerStyle={{ flex: 4, marginVertical: 10 }}
+            containerStyle={{ flex: 1, paddingTop: 10 }}
             inputContainerStyle={{
               backgroundColor: "#FFF",
               paddingHorizontal: 10,
-              marginVertical: 10,
-              height: 60
+              marginVertical: 10
             }}
             rightIcon={<Icon name="close" size={20} />}
             label="TAGS"
@@ -76,28 +73,30 @@ export default function CreateEvent_1(props: CompProps) {
               <Icon name="magnify" size={20} />
             }
           />
-          <Text style={[styles.subtitle_text]}>UPLOAD IMAGES</Text>
-          <Button
-            buttonStyle={{
-              width: 70,
-              height: 70,
-              backgroundColor: "#6200EE"
-            }}
-            containerStyle={{
-              borderRadius: 35,
-              width: 70,
-              height: 70,
-              margin: 10
-            }}
-            disabledTitleStyle={{ color: "#6200EE" }}
-            linearGradientProps={null}
-            icon={<Icon name="plus" size={45} color="#FFF" />}
-            onPress={() => { alert('Upload image') }}
-          />
+          <View style={{ flex: 1.5, marginTop: 10 }}>
+            <Text style={[styles.subtitle_text]}>UPLOAD IMAGES</Text>
+            <Button
+              buttonStyle={{
+                backgroundColor: "#6200EE",
+                height: 70,
+                width: 70,
+                borderRadius: 35
+              }}
+              containerStyle={{
+                flex: 1,
+                margin: 10,
+                marginLeft: 30
+              }}
+              disabledTitleStyle={{ color: "#6200EE" }}
+              linearGradientProps={null}
+              icon={<Icon name="plus" size={45} color="#FFF" />}
+              onPress={() => { alert('Upload image') }}
+            />
+          </View>
 
         </View>
 
-        <View style={{ flex: 2, backgroundColor: '#FFF', borderTopWidth: 0.5, borderColor: '#CCC', marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 2, backgroundColor: '#FFF', borderTopWidth: 0.5, borderColor: '#CCC', marginTop: 5, alignItems: 'center', justifyContent: 'center' }}>
           <Button
             title="SUBMIT"
             buttonStyle={{
@@ -181,22 +180,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFF'
   },
-  progress_text_2: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#018786'
-  },
-  title_text: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#888',
-    marginBottom: '5%',
-    marginLeft: '6%'
-  },
   subtitle_text: {
     fontSize: 16,
     fontWeight: '700',
     color: '#888',
-    marginLeft: 10
+    paddingLeft: 10,
+    flex: 0.3
   }
 });
