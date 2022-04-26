@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StyleSheet, Text, View, ScrollView, Linking, TouchableOpacity, Image } from "react-native";
-import { Header, Button } from "@react-native-elements/base";
+import { StyleSheet, Text, View, ScrollView, Linking, TouchableOpacity, Image, Pressable } from "react-native";
+import { Header, Button, Overlay } from "@react-native-elements/base";
 
 
 type CompProps = {
@@ -25,6 +25,13 @@ export default function Event_Details(props: CompProps) {
     address: '1 University Avenue, Mechanicsburg, PA',
     url: 'https://www.messiah.edu'
   }
+
+  // Options menu overlay variables
+  const [visible, setVisible] = useState(false);
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
+  };
 
   return (
     <>
@@ -51,7 +58,7 @@ export default function Event_Details(props: CompProps) {
             </View>
             <View style={[styles.header_info_date_container]}>
               <View style={{ flex: 1 }}>
-                <Icon name="dots-horizontal-circle-outline" size={30} onPress={() => alert('open info')} />
+                <Icon name="dots-horizontal-circle-outline" size={30} onPress={toggleOverlay} />
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={{ fontSize: 16, color: '#018786' }}>{eventDeets.date}</Text>
@@ -98,9 +105,9 @@ export default function Event_Details(props: CompProps) {
             <Icon name="plus" size={30} style={{ marginLeft: 15 }} onPress={() => alert('add event')} />
           </View>
         </View>
-        </View>
-        
-        <View style={{flex: 1, backgroundColor: '#FFF'}}>
+      </View>
+
+      <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <TouchableOpacity onPress={() => props.navigation.goBack()} style={{ flex: 3 }}>
           <View style={[styles.location_info_container]}>
             <View style={[styles.top_info_container]}>
@@ -130,6 +137,19 @@ export default function Event_Details(props: CompProps) {
           </View>
         </TouchableOpacity>
       </View>
+      <Overlay isVisible={visible} 
+        onBackdropPress={toggleOverlay}
+        overlayStyle={[styles.overlay_style]}>
+        <Pressable style={[styles.overlay_button]} onPress={() => alert('Share')}>
+          <Text style={{fontSize: 16}}>Share</Text>
+        </Pressable>
+        <Pressable style={[styles.overlay_button]} onPress={() => alert('Report')}>
+          <Text style={{fontSize: 16, color: '#B00020'}}>Report</Text>
+        </Pressable>
+        <Pressable style={[styles.overlay_button]} onPress={() => props.navigation.navigate('Calendars')}>
+          <Text style={{fontSize: 16}}>Add to Events</Text>
+        </Pressable>
+      </Overlay>
     </>
   )
 }
@@ -185,11 +205,23 @@ const styles = StyleSheet.create({
   },
   main_container: {
     flex: 8,
-    //shadowColor: '#000',
-    //shadowOpacity: 90,
-    //shadowRadius: 5,
-    //shadowOffset: {width: 10, height: 10},
     backgroundColor: '#FFF',
     borderBottomRightRadius: 60
+  },
+  overlay_style: {
+    backgroundColor: 'white',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: '30%',
+    padding: 0
+  },
+  overlay_button: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    borderTopWidth: 0.5,
+    borderColor: '#888',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
