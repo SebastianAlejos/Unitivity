@@ -34,53 +34,99 @@ export default function CreateEvent_1(props: CompProps) {
           <View style={[styles.progress_circle_1]}><Text style={[styles.progress_text_1]}>2</Text></View>
         </View>
 
-        <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={{ flex: 4 }}>
           <Input
             containerStyle={{ flex: 4, marginVertical: 10 }}
             inputContainerStyle={{
               backgroundColor: "#FFF",
               paddingHorizontal: 10,
-              marginVertical: 10
+              marginVertical: 10,
+              height: 80
+            }}
+            rightIcon={<Pressable onPress={() => clear()}><Icon name="close" size={20} /></Pressable>}
+            label="DESCRIPTION"
+            placeholder="Enter Description"
+            multiline
+            textAlignVertical="top"
+          />
+          <Input
+            containerStyle={{ flex: 4, marginVertical: 10 }}
+            inputContainerStyle={{
+              backgroundColor: "#FFF",
+              paddingHorizontal: 10,
+              marginVertical: 10,
+              height: 60
             }}
             rightIcon={<Icon name="close" size={20} />}
-            label="DESCRIPTION"
-            placeholder="Enter Decription"
+            label="WEBSITE"
+            placeholder="Enter Website URL"
           />
-        </View>
+          <Input
+            containerStyle={{ flex: 4, marginVertical: 10 }}
+            inputContainerStyle={{
+              backgroundColor: "#FFF",
+              paddingHorizontal: 10,
+              marginVertical: 10,
+              height: 60
+            }}
+            rightIcon={<Icon name="close" size={20} />}
+            label="TAGS"
+            placeholder="Search for tags..."
+            leftIcon={
+              <Icon name="magnify" size={20} />
+            }
+          />
+          <Text style={[styles.subtitle_text]}>UPLOAD IMAGES</Text>
+          <Button
+            buttonStyle={{
+              width: 70,
+              height: 70,
+              backgroundColor: "#6200EE"
+            }}
+            containerStyle={{
+              borderRadius: 35,
+              width: 70,
+              height: 70,
+              margin: 10
+            }}
+            disabledTitleStyle={{ color: "#6200EE" }}
+            linearGradientProps={null}
+            icon={<Icon name="plus" size={45} color="#FFF" />}
+            onPress={() => { alert('Upload image') }}
+          />
 
-        <View style={{ flex: 2, flexDirection: 'row' }}>
-          
         </View>
 
         <View style={{ flex: 2, backgroundColor: '#FFF', borderTopWidth: 0.5, borderColor: '#CCC', marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="SUBMIT"
-          buttonStyle={{
-            backgroundColor: '#6200EE',
-            borderRadius: 30
-          }}
-          containerStyle={{
-            width: 200,
-            margin: 5
-          }}
-          titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
-          onPress={() => props.navigation.navigate('Calendars')}
-        />
-        <Button
-          title="CANCEL"
-          buttonStyle={{
-            backgroundColor: '#FFF',
-            borderRadius: 30,
-            borderColor: '#B00020',
-            borderWidth: 1
-          }}
-          containerStyle={{
-            width: 200,
-            margin: 5
-          }}
-          titleStyle={{ fontWeight: 'bold', fontSize: 16, color: '#B00020' }}
-          onPress={() => props.navigation.navigate('Calendars')}
-        />
+          <Button
+            title="SUBMIT"
+            buttonStyle={{
+              backgroundColor: '#6200EE',
+              borderRadius: 30
+            }}
+            containerStyle={{
+              width: 200,
+              margin: 5
+            }}
+            titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+            onPress={() => props.navigation.navigate('Calendars')}
+          />
+          <Button
+            title="CANCEL"
+            buttonStyle={{
+              backgroundColor: '#FFF',
+              borderRadius: 30,
+              borderColor: '#B00020',
+              borderWidth: 1
+            }}
+            containerStyle={{
+              width: 200,
+              margin: 5
+            }}
+            titleStyle={{ fontWeight: 'bold', fontSize: 16, color: '#B00020' }}
+            onPress={() => props.navigation.navigate('Calendars')}
+          />
+
         </View>
       </View>
 
@@ -150,6 +196,7 @@ const styles = StyleSheet.create({
   subtitle_text: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#CCC'
+    color: '#888',
+    marginLeft: 10
   }
 });
