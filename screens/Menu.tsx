@@ -33,10 +33,7 @@ export default function Menu(props: CompProps) {
         <Pressable style={styles.pressable} onPress={()=>props.navigation.navigate('Favorites')}>
             <Icon name="heart-circle" style={styles.icons} size={44}></Icon>
             <Text style={styles.text }>Favorites</Text>
-        </Pressable> 
-        <Pressable style={styles.add} onPress={()=>props.navigation.navigate('CreateEventPage1')}>
-            <Icon name="plus-circle-outline" style={styles.icons} size={80}></Icon>
-        </Pressable> 
+        </Pressable>  
     </View>
     </>
   );
