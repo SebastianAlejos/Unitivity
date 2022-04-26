@@ -32,7 +32,7 @@ export default function CreateEvent_1(props: CompProps) {
     setSelectedIndexes1
   ] = React.useState([]);
 
-  // Button Group 2 (AM/PM)
+  // Button Group 3 (AM/PM)
   const [
     selectedIndex2,
     setSelectedIndex2
@@ -40,6 +40,16 @@ export default function CreateEvent_1(props: CompProps) {
   const [
     selectedIndexes2,
     setSelectedIndexes2
+  ] = React.useState([]);
+
+  // Button Group 4 (Yes/No)
+  const [
+    selectedIndex3,
+    setSelectedIndex3
+  ] = React.useState(1);
+  const [
+    selectedIndexes3,
+    setSelectedIndexes3
   ] = React.useState([]);
 
   return (
@@ -158,7 +168,7 @@ export default function CreateEvent_1(props: CompProps) {
         <View style={{ flex: 2, flexDirection: 'row' }}>
           <View style={{ flex: 3 }}>
             <View style={{ flex: 1, flexDirection: 'row' }}>
-              <View style={{ flex: 1, backgroundColor: 'red' }}>
+              <View style={{ flex: 1 }}>
                 <Input
                   containerStyle={{ flex: 5, marginVertical: 10 }}
                   inputContainerStyle={{
@@ -170,7 +180,7 @@ export default function CreateEvent_1(props: CompProps) {
                   placeholder="0:00"
                 />
               </View>
-              <View style={{ flex: 1, backgroundColor: 'blue' }}>
+              <View style={{ flex: 1 }}>
                 <ButtonGroup
                   buttonStyle={{
                     backgroundColor: "#CCC6C6",
@@ -186,7 +196,7 @@ export default function CreateEvent_1(props: CompProps) {
                     backgroundColor: '#CCC6C6'
                   }}
                   onPress={selectedIdx1 =>
-                    setSelectedIndex(selectedIdx1)
+                    setSelectedIndex1(selectedIdx1)
                   }
                   selectedButtonStyle={{ backgroundColor: "#FFF", borderWidth: 2, borderColor: '#CCC6C6' }}
                   selectedIndex={selectedIndex1}
@@ -200,7 +210,7 @@ export default function CreateEvent_1(props: CompProps) {
               </View>
             </View>
             <View style={{ flex: 1, flexDirection: 'row' }}>
-              <View style={{ flex: 1, backgroundColor: 'green' }}>
+              <View style={{ flex: 1 }}>
                 <Input
                   containerStyle={{ flex: 5, marginVertical: 10 }}
                   inputContainerStyle={{
@@ -212,28 +222,133 @@ export default function CreateEvent_1(props: CompProps) {
                   placeholder="0:00"
                 />
               </View>
-              <View style={{ flex: 1, backgroundColor: 'yellow' }}>
-
+              <View style={{ flex: 1 }}>
+                <ButtonGroup
+                  buttonStyle={{
+                    backgroundColor: "#CCC6C6",
+                    borderRadius: 10
+                  }}
+                  buttonContainerStyle={{}}
+                  buttons={["AM", "PM"]}
+                  containerStyle={{
+                    borderRadius: 10,
+                    flex: 2,
+                    marginTop: 38,
+                    marginBottom: 10,
+                    backgroundColor: '#CCC6C6'
+                  }}
+                  onPress={selectedIdx2 =>
+                    setSelectedIndex2(selectedIdx2)
+                  }
+                  selectedButtonStyle={{ backgroundColor: "#FFF", borderWidth: 2, borderColor: '#CCC6C6' }}
+                  selectedIndex={selectedIndex2}
+                  selectedIndexes={selectedIndexes2}
+                  selectedTextStyle={{
+                    color: "#444",
+                    fontWeight: "400"
+                  }}
+                  textStyle={{ color: "#444", fontWeight: "400" }}
+                />
               </View>
             </View>
           </View>
           <View style={{ flex: 2 }}>
-            <View style={{ flex: 1, backgroundColor: 'orange' }}>
-
+            <View style={{ flex: 1.5, justifyContent: 'flex-end' }}>
+              <Text style={[styles.title_text]}>RECURRING</Text>
             </View>
-            <View style={{ flex: 2, backgroundColor: 'pink' }}>
-
+            <View style={{ flex: 2.5 }}>
+              <ButtonGroup
+                buttonStyle={{
+                  backgroundColor: "#CCC6C6",
+                  borderRadius: 10
+                }}
+                buttonContainerStyle={{}}
+                buttons={["Yes", "No"]}
+                containerStyle={{
+                  borderRadius: 10,
+                  flex: 2,
+                  marginBottom: 8,
+                  width: 110,
+                  backgroundColor: '#CCC6C6'
+                }}
+                onPress={selectedIdx3 =>
+                  setSelectedIndex3(selectedIdx3)
+                }
+                selectedButtonStyle={{ backgroundColor: "#FFF", borderWidth: 2, borderColor: '#CCC6C6' }}
+                selectedIndex={selectedIndex3}
+                selectedIndexes={selectedIndexes3}
+                selectedTextStyle={{
+                  color: "#444",
+                  fontWeight: "400"
+                }}
+                textStyle={{ color: "#444", fontWeight: "400" }}
+              />
             </View>
-            <View style={{ flex: 2, backgroundColor: 'teal' }}>
-
+            <View style={{ flex: 2, flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                <Input
+                  containerStyle={{}}
+                  inputContainerStyle={{
+                    backgroundColor: "#FFF",
+                    paddingHorizontal: 10
+                  }}
+                  placeholder="1"
+                  disabled
+                />
+              </View>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={[styles.subtitle_text]}>time every</Text>
+              </View>
             </View>
-            <View style={{ flex: 2, backgroundColor: 'purple' }}>
-
+            <View style={{ flex: 2, flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                <Input
+                  containerStyle={{}}
+                  inputContainerStyle={{
+                    backgroundColor: "#FFF",
+                    paddingHorizontal: 10
+                  }}
+                  placeholder="1"
+                  disabled
+                />
+              </View>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={[styles.subtitle_text]}>days</Text>
+              </View>
             </View>
           </View>
         </View>
 
-        <View style={{ flex: 2 }} />
+        <View style={{ flex: 2, backgroundColor: '#FFF', borderTopWidth: 0.5, borderColor: '#CCC', marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+          title="NEXT"
+          buttonStyle={{
+            backgroundColor: '#6200EE',
+            borderRadius: 30
+          }}
+          containerStyle={{
+            width: 200,
+            margin: 5
+          }}
+          titleStyle={{ fontWeight: 'bold', fontSize: 16 }}
+          onPress={() => props.navigation.navigate('CreateEvent_2')}
+        />
+        <Button
+          title="CANCEL"
+          buttonStyle={{
+            backgroundColor: '#FFF',
+            borderRadius: 30,
+            borderColor: '#B00020',
+            borderWidth: 1
+          }}
+          containerStyle={{
+            width: 200,
+            margin: 5
+          }}
+          titleStyle={{ fontWeight: 'bold', fontSize: 16, color: '#B00020' }}
+          onPress={() => props.navigation.goBack()}
+        />
+        </View>
       </View>
 
     </>
@@ -291,5 +406,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: '#018786'
+  },
+  title_text: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#888',
+    marginBottom: '5%',
+    marginLeft: '6%'
+  },
+  subtitle_text: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#CCC'
   }
 });

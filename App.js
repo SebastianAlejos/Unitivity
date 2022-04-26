@@ -20,6 +20,7 @@ import CreateEventPage2 from './screens/CreateEventPage2';
 import Preferences from './screens/Preferences';
 import CreateCollegeAccount from './screens/CreateCollegeAccount';
 import CreditCard from './screens/CreditCard';
+import CheckOut from './screens/CheckOut';
 import CreateEvent_1 from './screens/CreateEvent_1';
 
 const Stack = createNativeStackNavigator();
