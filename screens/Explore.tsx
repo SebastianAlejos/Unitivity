@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent, Pressable } from "react-native";
-import { Header, Button, ButtonGroup, SearchBar, ListItem } from "@react-native-elements/base";
+import { StyleSheet, Text, View, ScrollView, Dimensions, Animated, Platform, useWindowDimensions, StatusBar, PanResponderGestureState, NativeSyntheticEvent, NativeScrollEvent, Pressable, ImageBackground } from "react-native";
+import { Header, Button, ButtonGroup, SearchBar, ListItem, Image } from "@react-native-elements/base";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SearchBarBaseProps } from "@react-native-elements/base/dist/SearchBar/SearchBar";
 import React, { useState, useRef, useCallback } from 'react';
@@ -193,16 +193,8 @@ export default function Explore(props: CompProps) {
       />
 
       <View style={[styles.mapContainer]}>
-        <MapView
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        />
-
-        <ButtonGroup
+        <Image source={require('../assets/images/map.png')} style={{ width: '100%', height: '100%' }} />
+        < ButtonGroup
           selectedButtonStyle={{ backgroundColor: '#018786' }}
           buttons={["Events", "Locations"]}
           containerStyle={{ borderColor: '#018786', borderWidth: 2, height: 30, marginTop: 0, marginLeft: 0, marginRight: 0 }}
