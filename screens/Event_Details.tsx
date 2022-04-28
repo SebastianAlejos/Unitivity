@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StyleSheet, Text, View, ScrollView, Linking, TouchableOpacity, Image, Pressable } from "react-native";
 import { Header, Button, Overlay } from "@react-native-elements/base";
+import { NavigationContainer } from '@react-navigation/native';
 
 
 type CompProps = {
@@ -71,7 +72,7 @@ export default function Event_Details(props: CompProps) {
               <Text style={{ fontSize: 14, lineHeight: 20 }}>{eventDeets.description}</Text>
             </ScrollView>
 
-            <TouchableOpacity onPress={() => alert('go to gallery')} style={{ flex: 0.8 }}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Gallery')} style={{ flex: 0.8 }}>
 
               <View style={[styles.gallery_container]}>
                 <View style={{ flex: 2, margin: 2, justifyContent: 'center' }}>

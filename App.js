@@ -23,6 +23,7 @@ import CreditCard from './screens/CreditCard';
 import CheckOut from './screens/CheckOut';
 import CreateEvent_1 from './screens/CreateEvent_1';
 import CreateEvent_2 from './screens/CreateEvent_2';
+import Gallery from './screens/Gallery';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -113,6 +114,10 @@ export default function App() {
         <Stack.Screen name='CreateEvent_2' component={CreateEvent_2}/>
         {props => (
                 <CreateEvent_2 {...props}/>
+              )}  
+        <Stack.Screen name='Gallery' component={Gallery}/>
+        {props => (
+                <Gallery {...props}/>
               )}  
       </Stack.Navigator>
     </NavigationContainer>
