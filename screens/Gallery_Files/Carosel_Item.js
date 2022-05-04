@@ -7,7 +7,7 @@ function CarouselItem({ item }, parallaxProps) {
   return (
       <SafeAreaView style={styles.item}>
         <ParallaxImage
-          source={require('../../assets/images/bike_pic.jpeg')} /* the source of the image */
+          source={item.source} /* the source of the image */
           containerStyle={styles.imageContainer}
           style={styles.image}
           {...parallaxProps} /* pass in the necessary props */ 
